@@ -6,7 +6,7 @@ export const allSubreddit = async (req, res) => {
     const subreddit = await Subreddit.find();
     res.json({subreddit, message:"Voici tout les subreddits"});
   } catch (error) {
-    res.json({ error: "OUPSS TU NE VOIS PAS TES POSTS ???" });
+    res.json(error.message);
   }
 };
 
@@ -16,7 +16,7 @@ export const createSubreddit = async (req, res, next) => {
     const subreddit = await Subreddit.create({title, description});
     res.json({ subreddit, message: "Votre subreddit à bien été crée" });
   } catch (error) {
-    res.json({ error: "Oups une erreur lors de la creation de votre subreddit !!!!!" });
+    res.json(error.message);
   }
 };
 
@@ -29,7 +29,7 @@ export const updateSubreddit = async (req, res, next) => {
     );
     res.json({ subreddit, message: "Votre subreddit à été parfaitement update !!!!" });
   } catch (error) {
-    res.json({ error: "Oupsss une erreur lors de l'update de votre subreddit" });
+    res.json(error.message);
   }
 };
 
@@ -41,7 +41,7 @@ export const insertPosttoSubreddit = async (req, res) => {
     subredditID.save();
     res.json({ newPostadd, message: "Ton post a été parfaitement ajouté à ton subreddit" });
   } catch (error) {
-    res.json({ error: "Oupsss ton post n'a pas été ajouté à ton subreddit" });
+    res.json(error.message);
   }
 };
 
@@ -53,7 +53,7 @@ export const insertPosttoSubreddit = async (req, res) => {
     });
     res.json({ subreddit, message: "Votre subreddit à été parfaitement delete" });
   } catch (error) {
-    res.json({ error: "Oupss une erreur lors de suppression de votre subreddit !!!!!" });
+    res.json(error.message);
   }
 };
 
@@ -66,7 +66,7 @@ export const deletePostinSubreddit = async (req, res) => {
     await subredditID.save();
     res.json({ deletePost, message: "Le post a été parfaitement supprimé du subreddit" });
   } catch (error) {
-    res.json({ error:"Oupss une erreur lors de la supression du Post du subreddit" });
+    res.json(error.message);
   }
 };
 
