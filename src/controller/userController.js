@@ -20,7 +20,7 @@ export const connexion = async (req, res) => {
     const {email, password} = req.body;
     try {
         const user = await User.findOne({email})
-        if (user && (await bcrypt.compare(password, user.email))) {
+        if (user && (await bcrypt.compare(password, user.password))) {
           const token = jwt.sign({email:user.email},process.env.JWT_SECRET,)
           res.json({token});
         }else {
