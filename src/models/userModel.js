@@ -6,7 +6,7 @@ const userSchema = new Schema({
     email: { type : String,},
     password: String,
     comment: [{ type: Schema.Types.ObjectId, ref: "Comments" }],
-    subreddit: { type: Schema.Types.ObjectId, ref: "Subreddit" }
+    subreddit: [{ type: Schema.Types.ObjectId, ref: "Subreddit" }]
 })
 
 userSchema.pre("save", async function (next) {
