@@ -12,6 +12,12 @@ body {
     background-color: #ff4400;
 }
 
+h1 {
+    color: #fff ;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 h2 {
     color: #fff ;
     text-align: center;
@@ -57,6 +63,11 @@ h2 {
     cursor: pointer;
 }
 
+.box-btn{
+    color: #060505;
+width: 100px;
+}
+
 .submit-btn:hover {
     background-color: #1ed760;
 }
@@ -67,5 +78,5 @@ p{
 }
 
 a{
-    color: #fff;
+    color: #1a1919;
 }
